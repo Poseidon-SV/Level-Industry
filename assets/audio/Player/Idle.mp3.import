@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Idle.mp3-762200a8b5393acc24991451b1ac9c9e.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Player/Idle.mp3"
+dest_files=[ "res://.import/Idle.mp3-762200a8b5393acc24991451b1ac9c9e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

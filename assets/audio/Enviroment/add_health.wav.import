@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/add_health.wav-52ac06fd04bbd739f4705febc2fbdbbc.sample"
+
+[deps]
+
+source_file="res://assets/audio/Enviroment/add_health.wav"
+dest_files=[ "res://.import/add_health.wav-52ac06fd04bbd739f4705febc2fbdbbc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,9 @@
+Godot Engine v3.4.2.stable.official.45eaa2daf - https://godotengine.org
+OpenGL ES 3.0 Renderer: Intel(R) HD Graphics 4600
+OpenGL ES Batching: ON
+ 
+ERROR: Condition "default_certs != nullptr" is true.
+   at: load_default_certificates (modules/mbedtls/crypto_mbedtls.cpp:314) - Condition "default_certs != nullptr" is true.
+Scanning projects at: E:\Shubham\Desktop\Level Industry
+Found 1 projects.
+Editing project: E:/Shubham/Desktop/Level Industry (E:::Shubham::Desktop::Level Industry)

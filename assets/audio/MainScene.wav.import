@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MainScene.wav-ee421e2ec439c731986f9cc7dfb3c403.sample"
+
+[deps]
+
+source_file="res://assets/audio/MainScene.wav"
+dest_files=[ "res://.import/MainScene.wav-ee421e2ec439c731986f9cc7dfb3c403.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

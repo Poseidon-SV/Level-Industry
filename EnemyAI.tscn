@@ -1,0 +1,226 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_6.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_5.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_4.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_2.png" type="Texture" id=5]
+[ext_resource path="res://WorkerEnemyAI.gd" type="Script" id=6]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_3.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_5.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Idle/Idle_1.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Idle/Idle_2.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Idle/Idle_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Idle/Idle_3.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_1.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_4.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Attack/Attack_6.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Run/Run_1.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_5.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_3.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_4.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_2.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_6.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Death/Death_1.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 1/Hurt/Hurt_1.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/Fonts/OdibeeSans-Regular.ttf" type="DynamicFontData" id=25]
+[ext_resource path="res://assets/audio/Enemy/run.mp3" type="AudioStream" id=26]
+[ext_resource path="res://assets/audio/Enemy/attack.wav" type="AudioStream" id=27]
+[ext_resource path="res://assets/audio/Enemy/deathW.mp3" type="AudioStream" id=28]
+[ext_resource path="res://assets/audio/Enemy/energy_ball_hit.wav" type="AudioStream" id=29]
+[ext_resource path="res://assets/audio/Enemy/hit.wav" type="AudioStream" id=30]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Hurt",
+"speed": 1.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Run",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "Attack",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Death",
+"speed": 6.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 4 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Hit"
+length = 1.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ), Vector2( 1e-05, 1 ), Vector2( 0.3, 1 ), Vector2( 0.4, 1 ), Vector2( 1, 1 ), Vector2( 1e-05, 1 ), Vector2( 1e-05, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CollisionShape2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "money"
+length = 2.0
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 96, 16 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 12
+outline_size = 1
+outline_color = Color( 0.0235294, 0.0196078, 0.0196078, 1 )
+use_filter = true
+font_data = ExtResource( 25 )
+
+[node name="WorkerEnemy" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 259
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.367816, 0.322917 )
+frames = SubResource( 1 )
+animation = "Idle"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+one_way_collision_margin = 4.4
+
+[node name="CloseEnough" type="Area2D" parent="."]
+modulate = Color( 0.00392157, 0.917647, 0.145098, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseEnough"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="Hit" type="Area2D" parent="."]
+modulate = Color( 0.921569, 0.0509804, 0.0509804, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+visible = false
+position = Vector2( 0, -4 )
+scale = Vector2( 1e-05, 1 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hit"]
+anims/Hit = SubResource( 9 )
+anims/RESET = SubResource( 8 )
+anims/money = SubResource( 11 )
+
+[node name="PlayerDetected_R" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="R_player" type="CollisionShape2D" parent="PlayerDetected_R"]
+visible = false
+modulate = Color( 0.172549, 0.113725, 0.862745, 1 )
+self_modulate = Color( 0.184314, 0.121569, 0.941176, 1 )
+position = Vector2( 96, -8 )
+shape = SubResource( 5 )
+
+[node name="PlayerDetected_L" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="L_player" type="CollisionShape2D" parent="PlayerDetected_L"]
+visible = false
+modulate = Color( 0.172549, 0.113725, 0.862745, 1 )
+self_modulate = Color( 0.184314, 0.121569, 0.941176, 1 )
+position = Vector2( -96, -8 )
+shape = SubResource( 5 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -12.0
+margin_top = -50.0
+margin_right = 12.0
+margin_bottom = 4.0
+custom_colors/font_color = Color( 0.929412, 0.0392157, 0.0392157, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 27 )
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+
+[node name="Eball_hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 29 )
+max_distance = 350.0
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 30 )
+volume_db = -12.0
+max_distance = 300.0
+attenuation = 3.03143
+
+[node name="run" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 26 )
+max_distance = 300.0
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="CloseEnough" to="." method="_on_CloseEnough_body_entered"]
+[connection signal="body_exited" from="CloseEnough" to="." method="_on_CloseEnough_body_exited"]
+[connection signal="body_entered" from="Hit" to="." method="_on_Hit_body_entered"]
+[connection signal="body_entered" from="PlayerDetected_R" to="." method="_on_PlayerDetected_R_body_entered"]
+[connection signal="body_exited" from="PlayerDetected_R" to="." method="_on_PlayerDetected_R_body_exited"]
+[connection signal="body_entered" from="PlayerDetected_L" to="." method="_on_PlayerDetected_L_body_entered"]
+[connection signal="body_exited" from="PlayerDetected_L" to="." method="_on_PlayerDetected_L_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

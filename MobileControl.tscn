@@ -1,0 +1,88 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/sprites/BTN/X_BTN.png" type="Texture" id=1]
+[ext_resource path="res://assets/sprites/BTN/Arrow_BTN.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/BTN/Z_BTN.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/BTN/C_BTN.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/BTN/pressed/X_BTN.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/BTN/pressed/C_BTN.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/BTN/pressed/Z_BTN.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/BTN/pressed/Arrow_BTN.png" type="Texture" id=8]
+
+[node name="MobileControl" type="CanvasLayer"]
+
+[node name="left" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 806.157, 411.03 )
+scale = Vector2( -0.376939, 0.376939 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "Move_left"
+
+[node name="right" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 878.157, 413 )
+scale = Vector2( 0.377, 0.377 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "Move_right"
+
+[node name="up" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.309804 )
+position = Vector2( 880.157, 418.157 )
+rotation = 1.5708
+scale = Vector2( -0.376939, 0.376939 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "Climb_up"
+visibility_mode = 1
+
+[node name="up2" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.345098 )
+position = Vector2( 880.157, 418.157 )
+rotation = 1.5708
+scale = Vector2( -0.376939, 0.376939 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "Jump"
+
+[node name="down" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 804.157, 484.157 )
+rotation = 4.71239
+scale = Vector2( -0.377, 0.377 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 8 )
+passby_press = true
+action = "Climb_down"
+
+[node name="Z" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 56, 412 )
+scale = Vector2( 0.377, 0.377 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 7 )
+passby_press = true
+action = "Punch"
+
+[node name="X" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 163, 413 )
+scale = Vector2( 0.377, 0.377 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 5 )
+passby_press = true
+action = "Shoot"
+
+[node name="C" type="TouchScreenButton" parent="."]
+modulate = Color( 1, 1, 1, 0.584314 )
+position = Vector2( 271, 411 )
+scale = Vector2( 0.377, 0.377 )
+normal = ExtResource( 4 )
+pressed = ExtResource( 6 )
+passby_press = true
+action = "Intract"

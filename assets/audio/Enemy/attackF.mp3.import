@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/attackF.mp3-161b48469c39f4b28ab3a9d31b1461ba.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Enemy/attackF.mp3"
+dest_files=[ "res://.import/attackF.mp3-161b48469c39f4b28ab3a9d31b1461ba.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

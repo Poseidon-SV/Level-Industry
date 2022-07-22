@@ -1,0 +1,289 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://FlamerEnemy.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_7.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_5.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_8.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_1.png" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_2.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_2.png" type="Texture" id=8]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_7.png" type="Texture" id=9]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_8.png" type="Texture" id=10]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_4.png" type="Texture" id=11]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_4.png" type="Texture" id=12]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_5.png" type="Texture" id=13]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_2.png" type="Texture" id=14]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_3.png" type="Texture" id=15]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_9.png" type="Texture" id=16]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_3.png" type="Texture" id=17]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_4.png" type="Texture" id=18]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_7.png" type="Texture" id=19]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_5.png" type="Texture" id=20]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_6.png" type="Texture" id=21]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_10.png" type="Texture" id=22]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_1.png" type="Texture" id=23]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_6.png" type="Texture" id=24]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_12.png" type="Texture" id=25]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Death/Death_1.png" type="Texture" id=26]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Idle/Idle_6.png" type="Texture" id=27]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_11.png" type="Texture" id=28]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_10.png" type="Texture" id=29]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Attack/Flame-ON_9.png" type="Texture" id=30]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Hurt/Hurt_2.png" type="Texture" id=31]
+[ext_resource path="res://assets/sprites/Enemies/Enemy 2/Hurt/Hurt_1.png" type="Texture" id=32]
+[ext_resource path="res://assets/sprites/Fonts/OdibeeSans-Regular.ttf" type="DynamicFontData" id=33]
+[ext_resource path="res://assets/audio/Enemy/deathF.mp3" type="AudioStream" id=34]
+[ext_resource path="res://assets/audio/Enemy/energy_ball_hit.wav" type="AudioStream" id=35]
+[ext_resource path="res://assets/audio/Enemy/attackF.mp3" type="AudioStream" id=36]
+[ext_resource path="res://assets/audio/Enemy/hit.wav" type="AudioStream" id=37]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 9, 14.5 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 27 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 24 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 30 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "Attack",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "Death",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 31 ) ],
+"loop": true,
+"name": "Hurt_",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 96, 16 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 2.75, 2.5 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Flame_L"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../flame_area/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.201, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, -1 ), Vector2( -54, 2 ), Vector2( -4, 2 ), Vector2( 54, 2 ), Vector2( -55.5, 2 ), Vector2( -56, 2 ), Vector2( -57, 2 ), Vector2( -58, 2 ), Vector2( -57, 2 ), Vector2( -55.5, 2 ), Vector2( -54.5, 2 ), Vector2( -21.5, 0.5 ), Vector2( 1, -1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../flame_area/CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.201, 0.3, 0.5, 0.6, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 7.5, 1.5 ), Vector2( 5, 3 ), Vector2( 15, 3 ), Vector2( 14, 3 ), Vector2( 14, 3 ), Vector2( 15, 3 ), Vector2( 15, 3 ), Vector2( 14, 3 ), Vector2( 2, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Flame_R"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../flame_area/CollisionShape2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, -1 ), Vector2( 20.5, 1 ), Vector2( 4, 2 ), Vector2( 55.5, 2 ), Vector2( 56, 2 ), Vector2( 57, 2 ), Vector2( 58, 2 ), Vector2( 57, 2 ), Vector2( 55.5, 2 ), Vector2( 54.5, 2 ), Vector2( 21.5, 0.5 ), Vector2( -1, -1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../flame_area/CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 5, 3 ), Vector2( 14, 3 ), Vector2( 14, 3 ), Vector2( 14, 3 ), Vector2( 15, 3 ), Vector2( 15, 3 ), Vector2( 15, 3 ), Vector2( 14, 3 ), Vector2( 2, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ "Hurt" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../flame_area/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 17.5, 0.5 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../flame_area/CollisionShape2D:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 3 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 65.75, 16 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 12
+outline_size = 1
+outline_color = Color( 0.0235294, 0.0196078, 0.0196078, 1 )
+use_filter = true
+font_data = ExtResource( 33 )
+
+[node name="Flamer" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 259
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -6, 0 )
+shape = SubResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.466667, 0.3125 )
+frames = SubResource( 5 )
+animation = "Idle"
+playing = true
+
+[node name="CloseEnough" type="Area2D" parent="."]
+modulate = Color( 0.00392157, 0.917647, 0.145098, 1 )
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CloseEnough"]
+visible = false
+shape = SubResource( 9 )
+
+[node name="flame_area" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="flame_area"]
+visible = false
+position = Vector2( 17.5, 0.5 )
+scale = Vector2( 15, 3 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="flame_area"]
+root_node = NodePath("../../AnimatedSprite")
+anims/Flame_L = SubResource( 10 )
+anims/Flame_R = SubResource( 11 )
+anims/RESET = SubResource( 12 )
+
+[node name="PlayerDetected_R" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="R_player" type="CollisionShape2D" parent="PlayerDetected_R"]
+visible = false
+modulate = Color( 0.172549, 0.113725, 0.862745, 1 )
+self_modulate = Color( 0.184314, 0.121569, 0.941176, 1 )
+position = Vector2( 66, -8 )
+shape = SubResource( 13 )
+
+[node name="PlayerDetected_L" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="L_player" type="CollisionShape2D" parent="PlayerDetected_L"]
+visible = false
+modulate = Color( 0.172549, 0.113725, 0.862745, 1 )
+self_modulate = Color( 0.184314, 0.121569, 0.941176, 1 )
+position = Vector2( -66, -8 )
+shape = SubResource( 13 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = -16.0
+margin_top = -48.0
+margin_right = 8.0
+margin_bottom = 6.0
+custom_colors/font_color = Color( 0.929412, 0.0392157, 0.0392157, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+volume_db = -13.0
+pitch_scale = 1.2
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 34 )
+
+[node name="Eball_hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 35 )
+max_distance = 350.0
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 37 )
+max_distance = 200.0
+attenuation = 1.62451
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="CloseEnough" to="." method="_on_CloseEnough_body_entered"]
+[connection signal="body_exited" from="CloseEnough" to="." method="_on_CloseEnough_body_exited"]
+[connection signal="body_entered" from="flame_area" to="." method="_on_flame_area_body_entered"]
+[connection signal="body_entered" from="PlayerDetected_R" to="." method="_on_PlayerDetected_R_body_entered"]
+[connection signal="body_exited" from="PlayerDetected_R" to="." method="_on_PlayerDetected_R_body_exited"]
+[connection signal="body_entered" from="PlayerDetected_L" to="." method="_on_PlayerDetected_L_body_entered"]
+[connection signal="body_exited" from="PlayerDetected_L" to="." method="_on_PlayerDetected_L_body_exited"]

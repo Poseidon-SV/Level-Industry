@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/sprites/Enviroment/3 Objects/Fire-extinguisher1.png" type="Texture" id=1]
+
+[sub_resource type="PhysicsMaterial" id=1]
+absorbent = true
+
+[node name="Fire-extinguisher" type="RigidBody2D" groups=["rigid_body"]]
+collision_layer = 256
+collision_mask = 263
+mass = 0.102041
+physics_material_override = SubResource( 1 )
+gravity_scale = 3.0
+can_sleep = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -6, 0, -6, 4, -5, 4, -5, 2, -2, 2, -2, 18, 5, 18, 5, 3, 3, 2, 5, 1, 5, -3, 2, -3, 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

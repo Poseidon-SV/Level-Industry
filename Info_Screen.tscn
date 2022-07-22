@@ -1,0 +1,149 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Info_Screen.gd" type="Script" id=1]
+[ext_resource path="res://assets/sprites/Enviroment/4 Animated objects/Screen1.png" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Fonts/Info HUD bg.png" type="Texture" id=3]
+[ext_resource path="res://assets/sprites/Fonts/OdibeeSans-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.329412, 0.686275, 0.972549, 0.8 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0627451, 0.0705882, 0.262745, 1 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+shadow_color = Color( 0.054902, 0.0235294, 0.180392, 0.913725 )
+shadow_size = 20
+shadow_offset = Vector2( -10, -5 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 14
+outline_size = 1
+outline_color = Color( 0.0980392, 0.00784314, 0.207843, 1 )
+use_filter = true
+extra_spacing_char = 1
+extra_spacing_space = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.160784, 0.313726, 1, 0.109804 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 13
+shadow_color = Color( 0.298039, 0.0196078, 0.0196078, 0.6 )
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 40, 64 )
+
+[sub_resource type="Environment" id=10]
+background_mode = 4
+glow_enabled = true
+
+[node name="Info_Screen" type="Area2D"]
+collision_layer = 0
+script = ExtResource( 1 )
+text = "dd"
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.643137 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.5
+margin_top = -65.5
+margin_right = 108.5
+margin_bottom = 65.5
+custom_styles/panel = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+modulate = Color( 1.5, 1.5, 1.5, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = -73.0
+margin_right = 126.0
+margin_bottom = 94.0
+texture = ExtResource( 3 )
+expand = true
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+modulate = Color( 1, 1.1, 2, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -88.0
+margin_top = -47.0
+margin_right = 87.0
+margin_bottom = 44.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -64 )
+frames = SubResource( 5 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 6 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+
+[connection signal="body_entered" from="." to="." method="_on_Info_Screen_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Info_Screen_body_exited"]
